@@ -1,62 +1,41 @@
-# Portfolio Editing Guide for Non-Technical Users
+# Portfolio Editing Guide
 
-This guide will help you update your portfolio content without advanced technical knowledge. The portfolio structure is designed to be easy to maintain and update.
+This guide will help you update your portfolio content without advanced technical knowledge. The portfolio has been designed with simplicity in mind, using a single HTML file.
 
 ## Table of Contents
 1. [Basic Structure](#basic-structure)
-2. [How to Update Basic Information](#how-to-update-basic-information)
-3. [How to Update Sections](#how-to-update-sections)
-4. [How to Change Colors](#how-to-change-colors)
-5. [How to Add Your Photo](#how-to-add-your-photo)
-6. [Deployment to GitHub Pages](#deployment-to-github-pages)
+2. [How to Update Your Content](#how-to-update-your-content)
+3. [How to Add Your Photo](#how-to-add-your-photo)
+4. [Deployment to GitHub Pages](#deployment-to-github-pages)
 
 ## Basic Structure
 
-The portfolio is organized into separate files for easy updating:
+The portfolio is organized in a single file for simplicity:
 
-- `config/settings.js` - Basic information like your name, title, contact info
-- `sections/` folder - Contains individual HTML files for each section
+- `index.html` - Contains all of your portfolio content
+- `css/styles.css` - Contains the styling for your portfolio
 - `images/` folder - Where you can add your profile photo and other images
 
-## How to Update Basic Information
+## How to Update Your Content
 
-To update basic information like your name, title, and contact details:
+To update your portfolio content:
 
-1. Open the file `config/settings.js` in a text editor
-2. Look for the `portfolioConfig` object with fields like `name`, `title`, `bio`
-3. Change the text between the quotes to your information
-4. Save the file
-
-Example:
-```javascript
-name: "John Doe",  // Change to your name
-title: "Web Developer", // Change to your title
-```
-
-## How to Update Sections
-
-Each section of your portfolio is in a separate file in the `sections/` folder:
-
-- `about.html` - The hero/about section
-- `education.html` - Your education history
-- `experience.html` - Your work experience
-- `skills.html` - Your skills and competencies
-- `projects.html` - Your projects and activities
-- `training.html` - Your training and workshops
-- `contact.html` - Your contact information
-
-To update a section:
-
-1. Open the corresponding file in a text editor
-2. Look for the content you want to change
+1. Open `index.html` in a text editor (like Notepad, TextEdit, or VS Code)
+2. Find the section you want to update (there are clear comments for each section)
 3. Edit the text between the HTML tags
 4. Save the file
 
-Each section file contains comments and examples showing how to add new entries.
+Each section in the file is clearly marked with comments like:
 
-Example from education.html:
 ```html
-<!-- To add a new education entry, copy the template below and fill in your details -->
+<!-- Education Section -->
+```
+
+### Example: Adding a New Education Entry
+
+To add a new education entry, find the Education Section, then copy an existing entry and modify it:
+
+```html
 <div class="edu-card">
     <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
     <h3>Your Degree</h3>
@@ -66,24 +45,35 @@ Example from education.html:
 </div>
 ```
 
-## How to Change Colors
+### Example: Adding a New Experience Entry
 
-You can easily change the color theme of your portfolio:
+To add a new work experience entry, find the Experience Section, then copy an existing entry and modify it:
 
-1. Open `config/settings.js`
-2. Find the `appearance` section
-3. Change the `theme` value to one of: "green", "blue", "purple", "orange", or "red"
-4. Save the file
-
-Example:
-```javascript
-appearance: {
-    theme: "blue", // Change to "green", "blue", "purple", "orange", or "red"
-    font: "Poppins"
-},
+```html
+<div class="timeline-item">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+        <h3>Job Title</h3>
+        <h4>Company Name</h4>
+        <p class="timeline-date">Start Date - End Date</p>
+        <ul>
+            <li>Responsibility 1</li>
+            <li>Responsibility 2</li>
+            <li>Responsibility 3</li>
+            <li>Responsibility 4</li>
+            <li>Achievement or additional detail</li>
+        </ul>
+    </div>
+</div>
 ```
 
-Alternatively, you can use the theme switcher on the website itself by clicking the gear icon in the header.
+### Example: Adding a New Skill
+
+To add a new skill, find the Skills Section, locate the appropriate category, and add a new skill:
+
+```html
+<span>Your New Skill</span>
+```
 
 ## How to Add Your Photo
 
@@ -93,22 +83,12 @@ To add or change your profile photo:
 2. Place it in the `images/` folder (replace the existing file if there is one)
 3. Make sure the image is a square format for best results
 
-## Deployment to GitHub Pages
-
-After updating your content, you can deploy your portfolio to GitHub Pages:
-
-1. Create a GitHub account if you don't have one
-2. Create a new repository named `yourusername.github.io` (replace "yourusername" with your GitHub username)
-3. Upload all the files from your portfolio to this repository
-4. Your site will be available at `https://yourusername.github.io`
-
-For more detailed instructions on using GitHub Pages, see the README.md file.
 
 ## Need More Help?
 
 If you need to make more advanced changes, consider:
 
-1. Looking at the HTML examples in each section file
+1. Looking at the HTML examples in each section
 2. Using online HTML tutorials to understand the code structure
 3. Asking a friend with web development experience
 
