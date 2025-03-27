@@ -55,8 +55,8 @@
                     <p>Versatile professional with a background in development studies and education. 
                     Experienced in environmental advocacy, disaster management, and sustainable development.</p>
                     <div class="hero-btns">
-                        <a href="#contact" class="btn btn-primary btn-shine">Contact Me</a>
-                        <a href="#projects" class="btn btn-secondary">View My Work</a>
+                        <a href="#contact" class="btn btn-primary btn-shine tilt-effect glow-on-hover">Contact Me</a>
+                        <a href="#projects" class="btn btn-secondary tilt-effect glow-on-hover">View My Work</a>
                     </div>
                 </div>
                 <div class="hero-image img-hover-zoom">
@@ -351,6 +351,30 @@
             }
             
             setupTiltEffect();
+            
+            // Setup tilt effect for hero buttons
+            function setupButtonTiltEffect() {
+                const buttons = document.querySelectorAll('.hero-btns .tilt-effect');
+                
+                buttons.forEach(button => {
+                    button.addEventListener('mousemove', function(e) {
+                        const rect = this.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        
+                        const xPercent = (x / rect.width - 0.5) * 10; // Less rotation than cards
+                        const yPercent = (y / rect.height - 0.5) * 10;
+                        
+                        this.style.transform = `perspective(1000px) rotateY(${xPercent}deg) rotateX(${-yPercent}deg) scale(1.05) translateY(-5px)`;
+                    });
+                    
+                    button.addEventListener('mouseleave', function() {
+                        this.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1) translateY(0)';
+                    });
+                });
+            }
+            
+            setupButtonTiltEffect();
             
             // Intersection Observer for staggered animations
             const observerOptions = {
