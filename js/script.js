@@ -42,23 +42,43 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Handle contact form submission
 if (contactForm) {
+    // Get the form status element
+    const formStatus = document.getElementById('form-status');
+    
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Form data
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value
-        };
+        // Get the form data
+        const formData = new FormData(contactForm);
         
-        // For GitHub Pages we'll just simulate the form submission
-        // as we can't handle actual backend processing
-        alert('Thank you for your message! As this is a static GitHub Pages site, the form cannot be submitted directly. In a production environment, this would connect to a backend service.');
+        // Display sending message
+        formStatus.innerHTML = '<p class="sending">Sending message...</p>';
         
-        // Reset form
-        contactForm.reset();
+        // Send the form data to Formspree
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Network response was not ok.');
+        })
+        .then(data => {
+            // Success message
+            formStatus.innerHTML = '<p class="success">Thank you! Your message has been sent successfully.</p>';
+            // Reset form
+            contactForm.reset();
+        })
+        .catch(error => {
+            // Error message
+            formStatus.innerHTML = '<p class="error">Oops! There was a problem sending your message. Please try again.</p>';
+            console.error('Error:', error);
+        });
     });
 }
 
