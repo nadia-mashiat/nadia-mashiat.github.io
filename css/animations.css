@@ -277,7 +277,7 @@
     font-weight: 700;
     position: relative;
     display: inline-block;
-    animation: slideInFadeUp 1s forwards;
+    animation: slideInFadeUp 4s forwards;
 }
 
 .slide-in-heading .highlight::after {

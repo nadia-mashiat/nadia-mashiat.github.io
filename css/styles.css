@@ -423,6 +423,21 @@ nav {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo-img {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.logo a:hover .nav-logo-img {
+    transform: rotate(10deg);
 }
 
 .logo a::after {
